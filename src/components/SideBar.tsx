@@ -22,16 +22,16 @@ interface Props {
   movies: MovieProps[]
 }
 
-export function SideBar(props : Props) {
+export function SideBar({selectedGenre, movies } : Props) {
   return (
     <div className="container">
       <header>
-        <span className="category">Categoria:<span> {props.selectedGenre.title}</span></span>
+        <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
       </header>
 
       <main>
         <div className="movies-list">
-          {props.movies.map(movie => (
+          {movies.map(movie => (
             <MovieCard key ={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
           ))}
         </div>
